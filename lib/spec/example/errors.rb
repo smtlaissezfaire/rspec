@@ -10,7 +10,7 @@ module Spec
     end
     
     class DefaultPendingError < ExamplePendingError
-      RSPEC_ROOT = File.expand_path(File.dirname(__FILE__) + "/../..")
+      RSPEC_ROOT_LIB = File.expand_path(File.dirname(__FILE__) + "/../..")
       
       def initialize(call_stack, message = nil)
         super(message)
@@ -21,7 +21,7 @@ module Spec
       
       def find_pending_caller(call_stack)
         call_stack.detect do |trace|
-          !trace.include?(RSPEC_ROOT)
+          !trace.include?(RSPEC_ROOT_LIB)
         end
       end
     end

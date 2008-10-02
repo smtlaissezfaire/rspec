@@ -95,7 +95,7 @@ module Spec
       end
       
       it "should have the root rspec path" do
-        DefaultPendingError::RSPEC_ROOT.should == rspec_root
+        DefaultPendingError::RSPEC_ROOT_LIB.should == rspec_root
       end
       
       it "should be a kind_of? Exception" do
