@@ -124,7 +124,7 @@ module Spec
             
             it "should use the proper file and line number for the DefaultPendingError" do
               file = __FILE__
-              line_number = __LINE__ + 2
+              line_number = __LINE__ + 3
               
               error = extract_error do
                 @example = @example_group.it
