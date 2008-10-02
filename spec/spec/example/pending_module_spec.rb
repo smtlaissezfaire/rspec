@@ -98,16 +98,6 @@ module Spec
         DefaultPendingError::RSPEC_ROOT.should == rspec_root
       end
       
-      it "should take the call stack when init'ing and report it back" do
-        DefaultPendingError.new([]).call_stack.should == []
-      end
-      
-      it "should return the correct call stack" do
-        call_stack = mock 'a call stack', :null_object => true
-        error = DefaultPendingError.new(call_stack)
-        error.call_stack.should equal(call_stack)
-      end
-      
       it "should be a kind_of? Exception" do
         DefaultPendingError.new([]).should be_a_kind_of(::Exception)
       end

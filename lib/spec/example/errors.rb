@@ -14,16 +14,13 @@ module Spec
       
       def initialize(call_stack, message = nil)
         super(message)
-        @call_stack = call_stack
-        @pending_caller = find_pending_caller
+        @pending_caller = find_pending_caller(call_stack)
       end
-      
-      attr_reader :call_stack
       
     private
       
-      def find_pending_caller
-        @call_stack.detect { |trace| !trace.include?(RSPEC_ROOT) }
+      def find_pending_caller(call_stack)
+        call_stack.detect { |trace| !trace.include?(RSPEC_ROOT) }
       end
     end
 
