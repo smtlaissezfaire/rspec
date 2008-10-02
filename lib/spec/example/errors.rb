@@ -20,11 +20,12 @@ module Spec
     private
       
       def find_pending_caller(call_stack)
-        call_stack.detect { |trace| !trace.include?(RSPEC_ROOT) }
+        call_stack.detect do |trace|
+          !trace.include?(RSPEC_ROOT)
+        end
       end
     end
 
-    class PendingExampleFixedError < StandardError
-    end
+    class PendingExampleFixedError < StandardError; end
   end
 end
