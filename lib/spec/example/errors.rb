@@ -10,7 +10,7 @@ module Spec
     end
     
     class DefaultPendingError < ExamplePendingError
-      RSPEC_ROOT = File.expand_path(File.dirname(__FILE__) + "/../../../")
+      RSPEC_ROOT = File.expand_path(File.dirname(__FILE__) + "/../..")
       
       def initialize(call_stack, message = nil)
         super(message)

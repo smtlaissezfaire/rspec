@@ -91,7 +91,7 @@ module Spec
     
     describe DefaultPendingError do
       def rspec_root
-        File.expand_path(__FILE__.gsub("/spec/spec/example/pending_module_spec.rb", ""))
+        File.expand_path(__FILE__.gsub("/spec/spec/example/pending_module_spec.rb", "/lib"))
       end
       
       it "should have the root rspec path" do
