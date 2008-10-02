@@ -89,41 +89,41 @@ module Spec
       end
     end
     
-    describe DefaultExamplePendingError do
+    describe DefaultPendingError do
       def rspec_root
         File.expand_path(__FILE__.gsub("/spec/spec/example/pending_module_spec.rb", ""))
       end
       
       it "should have the root rspec path" do
-        DefaultExamplePendingError::RSPEC_ROOT.should == rspec_root
+        DefaultPendingError::RSPEC_ROOT.should == rspec_root
       end
       
       it "should take the call stack when init'ing and report it back" do
-        DefaultExamplePendingError.new([]).call_stack.should == []
+        DefaultPendingError.new([]).call_stack.should == []
       end
       
       it "should return the correct call stack" do
         call_stack = mock 'a call stack', :null_object => true
-        error = DefaultExamplePendingError.new(call_stack)
+        error = DefaultPendingError.new(call_stack)
         error.call_stack.should equal(call_stack)
       end
       
       it "should be a kind_of? Exception" do
-        DefaultExamplePendingError.new([]).should be_a_kind_of(::Exception)
+        DefaultPendingError.new([]).should be_a_kind_of(::Exception)
       end
       
       it "should have the error provided" do
-        DefaultExamplePendingError.new([], "foobar").message.should == "foobar"
+        DefaultPendingError.new([], "foobar").message.should == "foobar"
       end
       
-      it "should use a 'Spec::Example::DefaultExamplePendingError' as it's default message" do
-        error = DefaultExamplePendingError.new([])
-        error.message.should == "Spec::Example::DefaultExamplePendingError"
+      it "should use a 'Spec::Example::DefaultPendingError' as it's default message" do
+        error = DefaultPendingError.new([])
+        error.message.should == "Spec::Example::DefaultPendingError"
       end
       
       describe "pending_caller" do
         def new_error(call_stack)
-          DefaultExamplePendingError.new(call_stack)
+          DefaultPendingError.new(call_stack)
         end
         
         it "should select an element out of the call stack" do

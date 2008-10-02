@@ -9,7 +9,7 @@ module Spec
       attr_reader :pending_caller
     end
     
-    class DefaultExamplePendingError < ExamplePendingError
+    class DefaultPendingError < ExamplePendingError
       RSPEC_ROOT = File.expand_path(File.dirname(__FILE__) + "/../../../")
       
       def initialize(call_stack, message = nil)
