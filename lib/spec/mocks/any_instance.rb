@@ -5,14 +5,14 @@ require File.dirname(__FILE__) + "/any_instance/methods"
 module Spec
   module Mocks
     # An addition to rspec's mock/stub library which
-    # will allow stubs to be included to all instances of a class. 
+    # will allow stubs to be included to all instances of a class.
     #
     # MyClass.any_instance.stub!(:foo).and_return :my_value
     #
     # MyClass.new.foo #=> :my_value
     # MyClass.new.foo #=> :my_value
     #
-    # 
+    #
     # Regular instance level stubs will still work as usual,
     # overriding the behavior of stubbing all instances of a class:
     #

@@ -243,5 +243,26 @@ module Spec
         end
       end
     end
+
+    describe "and_yield" do
+      before do
+        @klass = Class.new
+      end
+
+      def instance
+        @new_instance ||= @klass.new
+      end
+
+      it "should yield a value" do
+        @klass.any_instance.stub!(:foo).and_yield :bar
+        
+        value =  nil
+        instance.foo do |val|
+          value = val
+        end
+
+        value.should equal(:bar)
+      end
+    end
   end
 end

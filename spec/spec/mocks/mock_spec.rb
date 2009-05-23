@@ -233,6 +233,7 @@ module Spec
       end
     
       it "should return value from block by default" do
+        require 'rubygems'; require 'ruby-debug'; debugger
         @mock.stub!(:method_that_yields).and_yield
         @mock.method_that_yields { :returned_obj }.should == :returned_obj
         @mock.rspec_verify

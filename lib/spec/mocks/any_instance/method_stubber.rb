@@ -21,6 +21,10 @@ module Spec
           add_stub_with_error *raise_params
         end
 
+        def and_yield(arg)
+          add_stub_with_yield_value(arg)
+        end
+
         def reset!
           swap_methods @munged_sym, @message
           @target.send(:remove_method, @munged_sym) if @target.method_defined?(@munged_sym)
@@ -48,6 +52,10 @@ module Spec
 
         def add_stub_with_error(*raise_params)
           define_stub { raise *raise_params }
+        end
+
+        def add_stub_with_yield_value(value)
+          define_stub { yield :bar }
         end
 
         def store_current_instance_method(&block)
